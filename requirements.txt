@@ -1,0 +1,10 @@
+Django==1.8
+django-admin-bootstrapped
+django-datetime-widget
+django-bootstrap3
+psycopg2
+Pillow
+django-forms-bootstrap
+bootstrap-admin
+django-suit
+django-daterange-filter
