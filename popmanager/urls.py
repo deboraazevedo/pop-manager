@@ -16,6 +16,7 @@ urlpatterns = [
 
     url(r'^pessoas/$', ListPeople.as_view(), name='list_people'),
     url(r'^pessoa/adicionar/$', CreatePeople.as_view(), name='create_people'),
+    url(r'^pessoa/visualizar/(?P<pk>\d+)/$', DetailPeople.as_view(), name='view_people'),
     url(r'^pessoa/editar/(?P<pk>\d+)/$', EditPeople.as_view(), name='edit_people'),
     url(r'^pessoa/apagar/(?P<pk>\d+)/$', DeletePeople.as_view(), name='delete_people'),
 ]

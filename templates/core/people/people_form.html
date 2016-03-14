@@ -14,9 +14,8 @@
   <form method="post">{% csrf_token %}
       {{ form|as_bootstrap }}
       <button type="submit" class="btn btn-primary">Salvar</button>
-      <a href="/" class="btn btn-danger">Cancelar</a>
+      <a href="/pessoas/" class="btn btn-danger">Cancelar</a>
   </form>
 </div>
-
 
 {% endblock %}

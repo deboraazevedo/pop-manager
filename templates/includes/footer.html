@@ -1,5 +1,9 @@
-<footer class="footer">
+{% load staticfiles %}
+
+<footer class="footer text-center">
   <div class="container">
-    <p class="text-muted">Place sticky footer content here.</p>
+    <a href="https://www.rnp.br/"><img src="{% static "assets/img/logo-footer.png" %}" alt="Pop Manager" /></a>
+
+    <h4 class="text-muted">{% now "Y" %} POP-RN</h4>
   </div>
 </footer>

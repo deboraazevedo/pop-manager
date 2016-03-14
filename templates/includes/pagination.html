@@ -1,11 +1,23 @@
-<div class="col-md-12">
+{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><a href="#">&laquo;</a></li>
+    {% endif %}
 
-        <ul class="pagination">
-            <li class="disabled"><a>&lt; Anterior</a></li>
-            <li class="disabled"><a>1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
-        </ul><!-- /.pagination -->
+    {% for num in page_obj.paginator.page_range %}
+      {% ifequal num page_obj.number %}
+        <li class="active"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>
+      {% else %}
+        <li><a href="?page={{ num }}">{{ num }}</a></li>
+      {% endifequal %}
+    {% endfor %}
 
-    </div>
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><a href="#">&raquo;</a></li>
+    {% endif %}
+  <ul>
+{% endif %}
