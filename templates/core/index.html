@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% include "includes/dashboard.html" %}
+
+<div class="row">
+    <div class="col-lg-12">
+
+      {% comment area_chart %}
+        {% include "includes/area_chart.html" %}
+      {% endcomment %}
+
+      {% include "includes/timeline.html" %}
+    </div>
+    <!-- /.col-lg-8 -->
+
+    {% comment notifications %}
+        {% include "includes/notifications.html" %}
+    {% endcomment %}
+
+
+</div>
+<!-- /.row -->
+
+{% endblock content %}

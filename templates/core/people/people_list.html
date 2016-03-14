@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+
+
+
+<div id="main" class="container-fluid">
+    <div id="top" class="row">
+ <div class="col-md-3">
+     <h2>Pessoas</h2>
+ </div>
+
+ <div class="col-md-6">
+     <div class="input-group h2">
+         <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar pessoas">
+         <span class="input-group-btn">
+             <button class="btn btn-primary" type="submit">
+                 <span class="glyphicon glyphicon-search"></span>
+             </button>
+         </span>
+     </div>
+ </div>
+
+ <div class="col-md-3">
+     <a href="/pessoa/adicionar/" class="btn btn-primary pull-right h2">Adicionar pessoa <span class="glyphicon glyphicon-plus"></span></a>
+ </div>
+</div> <!-- /#top -->
+
+       <hr />
+       <div class="row">
+                     <div class="col-lg-12">
+                         <div class="panel panel-default">
+                             <div class="panel-heading">
+                               Pessoas
+                             </div>
+                             <!-- /.panel-heading -->
+                             <div class="panel-body">
+                                 <div class="dataTable_wrapper">
+                                     <table class="table table-hover" id="dataTables-example">
+                                         <thead>
+                                             <tr>
+                                                 <th>ID</th>
+                                                 <th>Nome</th>
+                                                 <th>Cargo</th>
+                                                 <th>Ações</th>
+                                             </tr>
+                                         </thead>
+                                         <tbody>
+                                           {% for people in people_list %}
+                                             <td>{{ people.id }}</td>
+                                             <td>{{ people.name }}</td>
+                                             <td>{{ people.office }}</td>
+                                             <td>
+                                                 <a class="btn btn-success" href="view.html">Visualizar</a>
+                                                 <a class="btn btn-warning" href="edit.html">Editar</a>
+                                                 <a class="btn btn-danger"  href="#">Excluir</a>
+                                             </td>
+                                           {% endfor %}
+                                         </tbody>
+                                     </table>
+                                 </div>
+                                 <!-- /.table-responsive -->
+
+                             </div>
+                             <!-- /.panel-body -->
+                         </div>
+                         <!-- /.panel -->
+                     </div>
+                     <!-- /.col-lg-12 -->
+                 </div>
+
+       <div id="bottom" class="row">
+         {% include "includes/pagination.html" %}
+       </div> <!-- /#bottom -->
+   </div>  <!-- /#main -->
+
+
+
+
+{% endblock content %}

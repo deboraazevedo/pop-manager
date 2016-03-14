@@ -1,0 +1,23 @@
+{
+  "name": "pop-manager",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Hudson Brendon <contato.hudsonbrendon@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/pop-rn/pop-manager",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "core/static/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "startbootstrap-sb-admin-2": "^1.0.8",
+    "bootstrap": "^3.3.6"
+  }
+}

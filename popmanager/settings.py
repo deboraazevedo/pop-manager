@@ -42,8 +42,6 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS = [
     'django_forms_bootstrap',
-    'django_admin_bootstrapped',
-    'datetimewidget',
 ]
 
 LOCAL_APPS = [
@@ -69,7 +67,7 @@ ROOT_URLCONF = 'popmanager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,11 +117,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'core.People'
-
-DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer'
-
-MESSAGE_TAGS = {
-            messages.SUCCESS: 'alert-success success',
-            messages.WARNING: 'alert-warning warning',
-            messages.ERROR: 'alert-danger error'
-}

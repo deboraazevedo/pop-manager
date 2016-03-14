@@ -4,7 +4,10 @@ RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
 
-RUN apt-get update && apt-get upgrade -y
+COPY .bowerrc /root/.bowerrc
+
+RUN apt-get update && \
+    apt-get upgrade -y
 
 RUN apt-get install -y build-essential \
     git-core \
@@ -15,9 +18,6 @@ RUN apt-get install -y build-essential \
 RUN npm install -g bower \
     grunt \
     grunt-cli
-
-
-RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 ADD . /code/
