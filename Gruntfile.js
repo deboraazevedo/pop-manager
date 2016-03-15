@@ -19,8 +19,11 @@ module.exports = function(grunt) {
       libsjs: {
         src: [
               'core/static/bower_components/bootstrap/dist/js/bootstrap.js',
+              'core/static/bower_components/metisMenu/dist/js/metisMenu.js',
               'core/static/bower_components/jquery/dist/jquery.js',
-              'core/static/bower_components/bootstrap/dist/css/bootstrap.min.css'
+              'core/static/bower_components/raphael/raphael-min.js',
+              'core/static/bower_components/morrisjs/morris.min.js',
+              'core/static/bower_components/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js'
              ],
         dest: 'core/static/dist/js/libs.js',
       },
@@ -32,8 +35,10 @@ module.exports = function(grunt) {
       },
       libscss: {
         src: [
-              'core/static/bower_components/bootstrap/dist/css/bootstrap.css',
-              'core/static/bower_components/bootstrap/dist/css/bootstrap-theme.css'
+              'core/static/bower_components/metisMenu/dist/metisMenu.css',
+              'core/static/bower_components/startbootstrap-sb-admin-2/dist/css/timeline.css',
+              'core/static/bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css',
+              'core/static/bower_components/morrisjs/morris.css'
              ],
         dest: 'core/static/dist/css/libs.css'
       }
@@ -47,8 +52,7 @@ module.exports = function(grunt) {
       },
       libs: {
         src: [
-              'core/static/bower_components/bootstrap/dist/js/bootstrap.js',
-              'core/static/bower_components/jquery/dist/jquery.js'
+              'core/static/dist/js/libs.js'
             ],
         dest: 'core/static/dist/js/libs.min.js'
       }
@@ -56,7 +60,7 @@ module.exports = function(grunt) {
     cssmin: {
       styles: {
         src: [
-              'core/static/dist/css/style.css',
+              'core/static/dist/css/style.css'
              ],
         dest: 'core/static/dist/css/style.min.css'
       },
@@ -77,6 +81,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task(s).
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'cssmin']);
 
 };

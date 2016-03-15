@@ -7,8 +7,14 @@
         <ul class="timeline">
           {% for task in tasks %}
               <li class="{% cycle '' 'timeline-inverted' %}">
-                <div class="timeline-badge primary"><i class="fa fa-tasks"></i>
-                  </div>
+                {% if task.priority == "Baixa" %}
+                  <div class="timeline-badge primary"><i class="fa fa-tasks"></i></div>
+                {% elif task.priority == "Normal" %}
+                  <div class="timeline-badge success"><i class="fa fa-tasks"></i></div>
+                {% else %}
+                  <div class="timeline-badge danger"><i class="fa fa-tasks"></i></div>
+                {% endif %}
+
                   <div class="timeline-panel">
                       <div class="timeline-heading">
                           <h4 class="timeline-title">{{ task.name }}</h4>
@@ -19,7 +25,7 @@
                           <p>{{ task.description|truncatechars:250 }}</p>
                       </div>
                       <hr>
-                      <a href="{% url 'view_task' task.id %}" class="btn btn-primary">Editar <span class="glyphicon glyphicon-search"></a>
+                      <a href="{% url 'view_task' task.id %}" class="btn btn-primary">Visualizar <span class="glyphicon glyphicon-search"></a>
                   </div>
               </li>
           {% endfor %}
