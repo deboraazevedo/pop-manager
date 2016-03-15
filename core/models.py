@@ -152,7 +152,7 @@ class Task(models.Model):
     )
 
     name = models.CharField(
-        u'Título da tarefa',
+        u'Título',
         max_length=100,
         help_text=u'Insira um nome da tarefa *'
     )

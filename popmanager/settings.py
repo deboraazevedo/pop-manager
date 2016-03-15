@@ -42,6 +42,7 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS = [
     'django_forms_bootstrap',
+    'datetimewidget',
 ]
 
 LOCAL_APPS = [

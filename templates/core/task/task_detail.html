@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Visualizar tarefa</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+              <div class="col-lg-12">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                        Tarefa #{{ object.id }}
+                      </div>
+                      <!-- /.panel-heading -->
+                      <div class="panel-body">
+                          <div class="dataTable_wrapper">
+
+
+                            <div id="main" class="container-fluid text-center">
+                              <div class="row">
+                              <div class="col-md-6">
+                                <p><strong>ID</strong></p>
+                                <p>{{ object.id }}</p>
+                              </div>
+                              <div class="col-md-6">
+                                <p><strong>Name</strong></p>
+                                <p>{{ object.name }}</p>
+                              </div>
+                              <div class="col-md-6">
+                                <p><strong>Data inicial</strong></p>
+                                <p>{{ object.start_date }}</p>
+                              </div>
+                              <div class="col-md-6">
+                                <p><strong>Data final</strong></p>
+                                <p>{{ object.conclusion_date }}</p>
+                              </div>
+                              <div class="col-md-6">
+                                <p><strong>Responsável</strong></p>
+                                <p>{{ object.people }}</p>
+                              </div>
+                              <div class="col-md-6">
+                                <p><strong>Prioridade</strong></p>
+                                <p>
+                                  {% if object.priority == "Baixa" %}
+                                    <span class="label label-primary">Baixa</span>
+                                  {% elif object.priority == "Normal" %}
+                                    <span class="label label-success">Normal</span>
+                                  {% else %}
+                                    <span class="label label-danger">Alta</span>
+                                  {% endif %}
+                                </p>
+                              </div>
+                              <div class="col-md-6">
+                                <p><strong>Atividade</strong></p>
+                                <p>{{ object.activity }}</p>
+                              </div>
+                              <div class="col-md-6">
+                                <p><strong>Status</strong></p>
+                                <p>
+                                  {% if object.status %}
+                                    <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+                                  {% else %}
+                                    <span class="fa fa-thumbs-o-down " aria-hidden="true"></span>
+                                  {% endif %}
+                                </p>
+                              </div>
+                              <div class="col-md-12">
+                                <p><strong>Descrição</strong></p>
+                                <p class="text-justify">{{ object.description }}</p>
+                              </div>
+                            </div> <!-- .row -->
+                            </div>
+                            <hr/>
+                            <div id="actions" class="row">
+                             <div class="col-md-12">
+                              <a href="{% url 'edit_task' object.id %}" class="btn btn-warning">Editar <span class="glyphicon glyphicon-pencil"></a>
+                              <a href="/tarefas/" class="btn btn-danger">Fechar</a>
+                             </div>
+                            </div>
+
+
+                          </div>
+                          <!-- /.table-responsive -->
+
+                      </div>
+                      <!-- /.panel-body -->
+                  </div>
+                  <!-- /.panel -->
+              </div>
+              <!-- /.col-lg-12 -->
+          </div>
+
+{% endblock %}

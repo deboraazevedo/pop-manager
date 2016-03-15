@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Remover diretoria</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div id="main" class="container-fluid text-center">
+  <form method="post">{% csrf_token %}
+    Você tem certeza que quer apagar a diretoria "{{ object }}"?
+    <button class="btn btn-danger" type="submit" value="Submit">Sim</button>
+    <a href="/diretorias/">Não, me leve de volta</a>
+  </form>
+</div>
+
+{% endblock %}

@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "startbootstrap-sb-admin-2": "^1.0.8",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.37"
   }
 }

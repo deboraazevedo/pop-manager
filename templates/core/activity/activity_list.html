@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Atividades</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div id="main" class="container-fluid">
+  <div class="col-md-9">
+      <div class="input-group h2">
+          <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar atividades">
+          <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit">
+                  <span class="glyphicon glyphicon-search"></span>
+              </button>
+          </span>
+      </div>
+  </div>
+
+  <div class="col-md-3">
+      <a href="/atividade/adicionar/" class="btn btn-primary pull-right h2">Adicionar atividade <span class="glyphicon glyphicon-plus"></span></a>
+  </div>
+ </div> <!-- /#top -->
+
+        <hr />
+        <div class="row">
+                      <div class="col-lg-12">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                Atividades
+                              </div>
+                              <!-- /.panel-heading -->
+                              <div class="panel-body">
+                                  <div class="dataTable_wrapper">
+                                      <table class="table table-hover" id="dataTables-example">
+                                          <thead>
+                                              <tr>
+                                                  <th>ID</th>
+                                                  <th>Name</th>
+                                                  <th>Gerências</th>
+                                                  <th>Prioridade</th>
+                                                  <th>Status</th>
+                                                  <th>Ações</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                            {% for activity in activity_list %}
+                                            <tr>
+                                              <td>{{ activity.id }}</td>
+                                              <td>{{ activity.name }}</td>
+                                              <td>
+                                                {% for management in activity.management.all %}
+                                                  <span class="label label-primary">{{ management }}</span>
+                                                {% endfor %}
+                                              </td>
+                                              <td>
+                                                {% if activity.priority == "Baixa" %}
+                                                  <span class="label label-primary">Baixa</span>
+                                                {% elif activity.priority == "Normal" %}
+                                                  <span class="label label-success">Normal</span>
+                                                {% else %}
+                                                  <span class="label label-danger">Alta</span>
+                                                {% endif %}
+                                              </td>
+                                              <td>
+                                                {% if activity.status %}
+                                                  <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+                                                {% else %}
+                                                  <span class="fa fa-thumbs-o-down " aria-hidden="true"></span>
+                                                {% endif %}
+
+                                              </td>
+                                              <td>
+                                                  <a class="btn btn-success" href="{% url 'view_activity' activity.id %}">Visualizar <span class="glyphicon glyphicon-search"></a>
+                                                  <a class="btn btn-warning" href="{% url 'edit_activity' activity.id %}">Editar <span class="glyphicon glyphicon-pencil"></a>
+                                                  <a class="btn btn-danger"  href="{% url 'delete_activity' activity.id %}">Excluir <span class="glyphicon glyphicon-remove"></a>
+                                              </td>
+                                            </tr>
+                                            {% endfor %}
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                  <!-- /.table-responsive -->
+
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                          <!-- /.panel -->
+                      </div>
+                      <!-- /.col-lg-12 -->
+                  </div>
+
+        <div id="bottom" class="row">
+          {% include "includes/pagination.html" %}
+        </div> <!-- /#bottom -->
+
+ </div>  <!-- /#main -->
+
+
+</div>
+
+
+{% endblock %}

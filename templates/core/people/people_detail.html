@@ -3,6 +3,7 @@
 
 {% block content %}
 
+
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Visualizar pessoa</h1>
@@ -10,54 +11,77 @@
     <!-- /.col-lg-12 -->
 </div>
 
-<div id="main" class="container-fluid text-center">
-  <div class="row">
-  <div class="col-md-4">
-    <p><strong>ID</strong></p>
-    <p>{{ object.id }}</p>
-  </div>
-  <div class="col-md-4">
-    <p><strong>username</strong></p>
-    <p>{{ object.username }}</p>
-  </div>
-  <div class="col-md-4">
-    <p><strong>Nome</strong></p>
-    <p>{{ object.first_name }} {{ object.last_name }}</p>
-  </div>
-  <div class="col-md-4">
-    <p><strong>Cargo</strong></p>
-    <p>{{ object.office }}</p>
-  </div>
-  <div class="col-md-4">
-    <p><strong>Email</strong></p>
-    <p>{{ object.email }}</p>
-  </div>
-  <div class="col-md-4">
-    <p><strong>Diretorias</strong></p>
-    {% for direction in object.directions.all %}
-      <span class="label label-primary">{{ direction }}</span>
-    {% endfor %}
-  </div>
-  <div class="col-md-4">
-    <p><strong>Grupos</strong></p>
-    {% for group in object.groups.all %}
-      <span class="label label-primary">{{ group }}</span>
-    {% endfor %}
-  </div>
-  <div class="col-md-4">
-    <p><strong>Permissões</strong></p>
-    {% for permission in object.permissions.all %}
-      <span class="label label-primary">{{ permission }}</span>
-    {% endfor %}
-  </div>
-</div> <!-- .row -->
-</div>
-<hr/>
-<div id="actions" class="row">
- <div class="col-md-12">
-  <a href="{% url 'edit_people' object.id %}" class="btn btn-warning">Editar <span class="glyphicon glyphicon-pencil"></a>
-  <a href="/pessoas/" class="btn btn-danger">Fechar</a>
- </div>
-</div>
+<div class="row">
+              <div class="col-lg-12">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                        Pessoa #{{ object.id }}
+                      </div>
+                      <!-- /.panel-heading -->
+                      <div class="panel-body">
+                          <div class="dataTable_wrapper">
+
+
+                            <div id="main" class="container-fluid text-center">
+                              <div class="row">
+                              <div class="col-md-4">
+                                <p><strong>ID</strong></p>
+                                <p>{{ object.id }}</p>
+                              </div>
+                              <div class="col-md-4">
+                                <p><strong>username</strong></p>
+                                <p>{{ object.username }}</p>
+                              </div>
+                              <div class="col-md-4">
+                                <p><strong>Nome</strong></p>
+                                <p>{{ object.first_name }} {{ object.last_name }}</p>
+                              </div>
+                              <div class="col-md-4">
+                                <p><strong>Cargo</strong></p>
+                                <p>{{ object.office }}</p>
+                              </div>
+                              <div class="col-md-4">
+                                <p><strong>Email</strong></p>
+                                <p>{{ object.email }}</p>
+                              </div>
+                              <div class="col-md-4">
+                                <p><strong>Diretorias</strong></p>
+                                {% for direction in object.directions.all %}
+                                  <span class="label label-primary">{{ direction }}</span>
+                                {% endfor %}
+                              </div>
+                              <div class="col-md-4">
+                                <p><strong>Grupos</strong></p>
+                                {% for group in object.groups.all %}
+                                  <span class="label label-primary">{{ group }}</span>
+                                {% endfor %}
+                              </div>
+                              <div class="col-md-4">
+                                <p><strong>Permissões</strong></p>
+                                {% for permission in object.permissions.all %}
+                                  <span class="label label-primary">{{ permission }}</span>
+                                {% endfor %}
+                              </div>
+                            </div> <!-- .row -->
+                            </div>
+                            <hr/>
+                            <div id="actions" class="row">
+                             <div class="col-md-12">
+                              <a href="{% url 'edit_people' object.id %}" class="btn btn-warning">Editar <span class="glyphicon glyphicon-pencil"></a>
+                              <a href="/pessoas/" class="btn btn-danger">Fechar</a>
+                             </div>
+                            </div>
+
+
+                          </div>
+                          <!-- /.table-responsive -->
+
+                      </div>
+                      <!-- /.panel-body -->
+                  </div>
+                  <!-- /.panel -->
+              </div>
+              <!-- /.col-lg-12 -->
+          </div>
 
 {% endblock %}

@@ -41,7 +41,6 @@
                                           <thead>
                                               <tr>
                                                   <th>ID</th>
-                                                  <th>Username</th>
                                                   <th>Nome</th>
                                                   <th>Cargo</th>
                                                   <th>Email</th>
@@ -52,29 +51,31 @@
                                           </thead>
                                           <tbody>
                                             {% for people in people_list %}
-                                              <td>{{ people.id }}</td>
-                                              <td>{{ people.username }}</td>
-                                              <td>{{ people.first_name }} {{ people.last_name }}</td>
-                                              <td>{{ people.office }}</td>
-                                              <td>{{ people.email }}</td>
-                                              <td>
-                                                {% for direction in people.directions.all %}
-                                                  <span class="label label-primary">{{ direction }}</span>
-                                                {% endfor %}
-                                              </td>
-                                              <td>
-                                                {% if people.is_superuser %}
-                                                  <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
-                                                {% else %}
-                                                  <span class="fa fa-thumbs-o-down " aria-hidden="true"></span>
-                                                {% endif %}
+                                              <tr>
+                                                <td>{{ people.id }}</td>
+                                                <td>{{ people.first_name }} {{ people.last_name }}</td>
+                                                <td>{{ people.office }}</td>
+                                                <td>{{ people.email }}</td>
+                                                <td>
+                                                  {% for direction in people.direction.all %}
+                                                    <span class="label label-primary">{{ direction }}</span>
+                                                  {% endfor %}
+                                                </td>
+                                                <td>
+                                                  {% if people.is_superuser %}
+                                                    <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+                                                  {% else %}
+                                                    <span class="fa fa-thumbs-o-down " aria-hidden="true"></span>
+                                                  {% endif %}
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-success" href="{% url 'view_people' people.id %}">Visualizar <span class="glyphicon glyphicon-search"></a>
+                                                    <a class="btn btn-warning" href="{% url 'edit_people' people.id %}">Editar <span class="glyphicon glyphicon-pencil"></a>
+                                                    <a class="btn btn-danger"  href="{% url 'delete_people' people.id %}">Excluir <span class="glyphicon glyphicon-remove"></a>
+                                                </td>
+                                              </tr>
 
-                                              </td>
-                                              <td>
-                                                  <a class="btn btn-success" href="{% url 'view_people' people.id %}">Visualizar <span class="glyphicon glyphicon-search"></a>
-                                                  <a class="btn btn-warning" href="{% url 'edit_people' people.id %}">Editar <span class="glyphicon glyphicon-pencil"></a>
-                                                  <a class="btn btn-danger"  href="{% url 'delete_people' people.id %}">Excluir <span class="glyphicon glyphicon-remove"></a>
-                                              </td>
+
                                             {% endfor %}
                                           </tbody>
                                       </table>
