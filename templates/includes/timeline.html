@@ -6,35 +6,22 @@
     <div class="panel-body">
         <ul class="timeline">
           {% for task in tasks %}
-            {% if task.status %}
-              <li>
-                  <div class="timeline-badge"><i class="fa fa-check"></i>
+              <li class="{% cycle '' 'timeline-inverted' %}">
+                <div class="timeline-badge primary"><i class="fa fa-tasks"></i>
                   </div>
                   <div class="timeline-panel">
                       <div class="timeline-heading">
                           <h4 class="timeline-title">{{ task.name }}</h4>
-                          <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+                          <p><small class="text-muted"><i class="fa fa-clock-o"></i> {{ task.start_date }}</small>
                           </p>
                       </div>
                       <div class="timeline-body">
-                          <p>{{ tasks.description|truncatechars:250 }}</p>
+                          <p>{{ task.description|truncatechars:250 }}</p>
                       </div>
+                      <hr>
+                      <a href="{% url 'view_task' task.id %}" class="btn btn-primary">Editar <span class="glyphicon glyphicon-search"></a>
                   </div>
               </li>
-            {% else %}
-              <li class="timeline-inverted">
-                  <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-                  </div>
-                  <div class="timeline-panel">
-                      <div class="timeline-heading">
-                          <h4 class="timeline-title">{{ task.name }}</h4>
-                      </div>
-                      <div class="timeline-body">
-                        <p>{{ tasks.description|truncatechars:250 }}</p>
-                      </div>
-                  </div>
-              </li>
-            {% endif %}
           {% endfor %}
         </ul>
     </div>
