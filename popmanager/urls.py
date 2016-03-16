@@ -10,6 +10,13 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+
+    # Authenticate
+
+    url(r'^entrar/$', 'accounts.views.view_login', name='accounts_view_login'),
+    url(r'^sair/$', 'accounts.views.view_logout', name='accounts_view_logout'),
+
+
     url(r'^$', 'core.views.index', name='core_index'),
 
     # Peoples

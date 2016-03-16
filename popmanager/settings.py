@@ -47,6 +47,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     'core',
+    'accounts',
 ]
 
 
@@ -118,3 +119,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'core.People'
+
+LOGIN_URL = '/entrar/'

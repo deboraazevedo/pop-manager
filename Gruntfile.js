@@ -26,21 +26,6 @@ module.exports = function(grunt) {
               'core/static/bower_components/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js'
              ],
         dest: 'core/static/dist/js/libs.js',
-      },
-      styles : {
-        src: [
-              'core/static/assets/css/*.css'
-             ],
-        dest: 'core/static/dist/css/style.css'
-      },
-      libscss: {
-        src: [
-              'core/static/bower_components/metisMenu/dist/metisMenu.css',
-              'core/static/bower_components/startbootstrap-sb-admin-2/dist/css/timeline.css',
-              'core/static/bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css',
-              'core/static/bower_components/morrisjs/morris.css'
-             ],
-        dest: 'core/static/dist/css/libs.css'
       }
     },
     uglify: {
