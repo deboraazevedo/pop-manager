@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
 from vanilla import CreateView, DetailView, DeleteView, ListView, UpdateView
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.utils.decorators import method_decorator
 from core.models import *
 from core.forms import PeopleForm, TaskForm

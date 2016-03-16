@@ -21,7 +21,8 @@ def view_login(request):
         request,
         'accounts/login.html',
         {
-            'form': form
+            'form': form,
+            'next': next
         }
     )
 
