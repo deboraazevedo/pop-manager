@@ -48,18 +48,24 @@
                                 <p><strong>Diretorias</strong></p>
                                 {% for direction in object.directions.all %}
                                   <span class="label label-primary">{{ direction }}</span>
+                                {% empty %}
+                                  <p>Esta pessoa não está em nenhuma diretoria</p>
                                 {% endfor %}
                               </div>
                               <div class="col-md-4">
                                 <p><strong>Grupos</strong></p>
                                 {% for group in object.groups.all %}
                                   <span class="label label-primary">{{ group }}</span>
+                                {% empty %}
+                                  <p>Esta pessoa não está em nenhum grupo</p>
                                 {% endfor %}
                               </div>
                               <div class="col-md-4">
                                 <p><strong>Permissões</strong></p>
-                                {% for permission in object.permissions.all %}
+                                {% for permission in object.user_permissions.all %}
                                   <span class="label label-primary">{{ permission }}</span>
+                                {% empty %}
+                                  <p>Esta pessoa não tem nenhuma permissão</p>
                                 {% endfor %}
                               </div>
                             </div> <!-- .row -->
