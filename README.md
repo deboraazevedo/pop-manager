@@ -2,9 +2,9 @@
 
 ![POP-RN](logo.png)
 
-Management system pop-rn, RNP point of presence in the great northern river.
+POP RN management system, RNP's point of presence at Rio Grande do Norte (Brazil).
 
-Create containers with all project dependencies.
+Create containers with all project's dependencies.
 ```bash
 $ docker-compose build
 ```
@@ -16,11 +16,11 @@ $ docker-compose run web python manage.py makemigrations
 $ docker-compose run web python manage.py migrate
 ```
 
-Installation of all dependencies of Node.js.
+Installation of all Node.js dependencies.
 ```bash
 $ docker-compose run web npm install
 ```
-Installation of all dependencies bower.
+Installation of all Bower dependencies.
 ```bash
 $ docker-compose run web bower install
 ```
